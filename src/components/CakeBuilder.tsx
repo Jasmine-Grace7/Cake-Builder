@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { CakeLayerModel } from "../models/cakeLayerModel";
-import CakeLayer from "./CakeLayer";
 
-function Cake() {
+function CakeBuilder() {
     const [cake, setCake] = useState<CakeLayerModel[]>([
     ]);
 
@@ -10,4 +9,4 @@ function Cake() {
 
 }
 
-export default Cake;
+export default CakeBuilder;

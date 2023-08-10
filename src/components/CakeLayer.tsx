@@ -1,13 +1,13 @@
-import { Cake } from "../models/cake";
+import { CakeLayerModel } from "../models/cakeLayerModel";
 
-
-interface CakeBuilderProps {
-    cake: Cake;
-    remove(): void;
+interface CakeProps {
+    cake: CakeLayerModel;
 }
 
-function CakeLayer({ cake, remove}: CakeBuilderProps) {
-    return;
+function CakeLayer({ cake }: CakeProps) {
+    return (
+        <div className='CakeLayer'></div>
+    );
 }
 
 export default CakeLayer;
