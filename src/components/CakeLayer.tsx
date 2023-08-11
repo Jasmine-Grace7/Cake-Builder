@@ -1,12 +1,13 @@
 import { CakeLayerModel } from "../models/cakeLayerModel";
 
-interface CakeProps {
-    cake: CakeLayerModel;
+interface cakeProps {
+    cakeLayer: CakeLayerModel;
 }
 
-function CakeLayer({ cake }: CakeProps) {
+function CakeLayer({cakeLayer}: cakeProps) {
     return (
-        <div className='CakeLayer'></div>
+        <div className='CakeLayer' style={{color: cakeLayer.color, width: cakeLayer.width, height: cakeLayer.height}}>
+        </div>
     );
 }
 

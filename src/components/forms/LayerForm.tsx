@@ -10,6 +10,12 @@ function LayerForm({ updateCake }: LayerFormProps) {
     const [width, setWidth] = useState('');
     const [height, setHeight] = useState('');
 
+    const handleCancel = () => {
+        setColor("");
+        setWidth("");
+        setHeight("");
+    };
+
     function createLayer(event: FormEvent) {
         event.preventDefault();
 
@@ -28,7 +34,8 @@ function LayerForm({ updateCake }: LayerFormProps) {
 
     return (
         <form onSubmit={createLayer}>
-            <select>
+            <select value={color} onChange={(event) => setColor(event.target.value)}>
+                <option value={''}>Select Color</option>
                 <option value={'red'}>Red</option>
                 <option value={'pink'}>Pink</option>
                 <option value={'orange'}>Orange</option>
@@ -39,8 +46,11 @@ function LayerForm({ updateCake }: LayerFormProps) {
                 <option value={'black'}>Black</option>
             </select>
             <label htmlFor="width">Width</label>
-            
-            <label htmlFor="width">Height</label>
+            <input type="range" value={width} min={1} max={10} onChange={(event) => setWidth(event.target.value)} />
+            <label htmlFor="height">Height</label>
+            <input type="range" value={height} min={0.5} max={10.0} onChange={(event) => setHeight(event.target.value)} />
+            <button type="submit">Save</button>
+            <button onClick={handleCancel}>Cancel</button>
         </form>
     )
 }
