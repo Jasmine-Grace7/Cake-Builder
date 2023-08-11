@@ -1,25 +1,17 @@
 import { useState } from "react";
 import { CakeLayerModel } from "../models/cakeLayerModel";
-import LayerAdd from "./LayerAdd";
+import LayerForm from "./forms/LayerForm";
 
-function CakeBuilder() {
-    const [cake, setCake] = useState<CakeLayerModel[]>([
-    ]);
-
-    function updateCake(cakeLayer: CakeLayerModel) {
-        // Copy
-        const tempCake = cake.slice(0);
-    
-        // Change
-        tempCake.push(cakeLayer);
-    
-        // Replace
-        setCake(tempCake);
-      }
+function CakeBuilder(props: any) {
+    const [display, setDisplay] = useState(true);
 
     return (
         <div>
-            <LayerAdd />
+            {display ? (
+            <button onClick={() => setDisplay(false)}>Add a Layer</button>
+        ): (
+            <LayerForm addLayer={props.a} />
+        )}
         </div>
     )
 

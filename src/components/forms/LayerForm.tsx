@@ -2,10 +2,10 @@ import { FormEvent, useState } from "react";
 import { CakeLayerModel } from "../../models/cakeLayerModel";
 
 interface LayerFormProps {
-    updateCake(cake: CakeLayerModel): void;
+    addLayer(layer: CakeLayerModel): void;
 }
 
-function LayerForm({ updateCake }: LayerFormProps) {
+function LayerForm({ addLayer }: LayerFormProps) {
     const [color, setColor] = useState('');
     const [width, setWidth] = useState('');
     const [height, setHeight] = useState('');
@@ -18,18 +18,10 @@ function LayerForm({ updateCake }: LayerFormProps) {
 
     function createLayer(event: FormEvent) {
         event.preventDefault();
+        
+        const layer: CakeLayerModel = {color, width: parseInt(width), height: parseInt(height)}
+        addLayer(layer);
 
-        const cakeLayer : CakeLayerModel = {
-            color,
-            width: parseInt(width),
-            height: parseInt(height)
-        };
-
-        setColor('');
-        setWidth('');
-        setHeight('')
-
-        updateCake(cakeLayer)
     }
 
     return (
