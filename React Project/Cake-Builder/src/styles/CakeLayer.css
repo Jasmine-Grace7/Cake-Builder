@@ -1,0 +1,64 @@
+import React, { useState } from "react";
+import "./App.css";
+
+const colors = ["white", "pink", "chocolate", "blue"];
+
+function Layer({ layer }) {
+  const { height, width, color } = layer;
+  const layerStyle = {
+    height: `${height}rem`,
+    width: `${width}rem`,
+    backgroundColor: color,
+  };
+
+  return <div className="layer" style={layerStyle}></div>;
+}
+
+function Cake({ layers }) {
+  return (
+    <div className="cake">
+      {layers.map((layer, index) => (
+        <Layer key={index} layer={layer} />
+      ))}
+    </div>
+  );
+}
+
+function App() {
+  const [layers, setLayers] = useState([
+    { height: 3, width: 6, color: "white" },
+    { height: 2, width: 6, color: "pink" },
+    { height: 1, width: 6, color: "chocolate" },
+  ]);
+
+  const addLayer = () => {
+    if (layers.length < 5) {
+      setLayers([
+        ...layers,
+        { height: 1, width: 6, color: "white" },
+      ]);
+    }
+  };
+
+  const removeLayer = () => {
+    if (layers.length > 1) {
+      const newLayers = [...layers];
+      newLayers.pop();
+      setLayers(newLayers);
+    }
+  };
+
+  return (
+    <div className="App">
+      <h1>Cake Builder</h1>
+      <Cake layers={layers} />
+      <div className="controls">
+        <button onClick={addLayer}>Add Layer</button>
+        <button onClick={removeLayer}>Remove Layer</button>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
