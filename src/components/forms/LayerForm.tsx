@@ -1,14 +1,17 @@
 import { FormEvent, useState } from "react";
 import { CakeLayerModel } from "../../models/cakeLayerModel";
+import "../../styles/LayerFormStyle.css"
 
 interface LayerFormProps {
     addLayer(layer: CakeLayerModel): void;
+    display: boolean;
 }
 
-function LayerForm({ addLayer }: LayerFormProps) {
+function LayerForm({ addLayer, display}: LayerFormProps) {
     const [color, setColor] = useState('');
     const [width, setWidth] = useState('');
     const [height, setHeight] = useState('');
+    const [Display, setDisplay] = useState(display)
 
     const handleCancel = () => {
         setColor("");
@@ -21,7 +24,6 @@ function LayerForm({ addLayer }: LayerFormProps) {
         
         const layer: CakeLayerModel = {color, width: parseInt(width), height: parseInt(height)}
         addLayer(layer);
-
     }
 
     return (
@@ -38,11 +40,11 @@ function LayerForm({ addLayer }: LayerFormProps) {
                 <option value={'black'}>Black</option>
             </select>
             <label htmlFor="width">Width</label>
-            <input type="range" value={width} min={1} max={10} onChange={(event) => setWidth(event.target.value)} />
+            <input type="range" value={width} min={1} max={10} step={0.5} onChange={(event) => setWidth(event.target.value)} />
             <label htmlFor="height">Height</label>
-            <input type="range" value={height} min={0.5} max={10.0} onChange={(event) => setHeight(event.target.value)} />
-            <button type="submit">Save</button>
-            <button onClick={handleCancel}>Cancel</button>
+            <input type="range" value={height} min={0.5} max={10.0} step={0.5} onChange={(event) => setHeight(event.target.value)} />
+            <button type="submit" onClick={() => setDisplay(true)}>Save</button>
+            <button onClick={() => setDisplay(true)}>Cancel</button>
         </form>
     )
 }

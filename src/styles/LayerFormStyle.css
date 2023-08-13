@@ -1,0 +1,12 @@
+form {
+    display: flex;
+    background-color: lightblue;
+    width: 50%;
+    height: 3rem;
+    border-radius: .5rem;
+    box-shadow: 3px 3px lightgrey;
+    align-items: center;
+    justify-content: space-between;
+    padding:12px;
+}
+
