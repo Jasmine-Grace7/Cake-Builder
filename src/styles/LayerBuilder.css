@@ -1,0 +1,31 @@
+.LayerBar {
+    width: 160px;
+    background-color: lightgray;
+    height: .5rem;
+    border-radius: .25rem;
+}
+
+.InfoBar {
+    background-color: blue;
+    height: .5rem;
+    border-radius: .25rem;
+}
+
+.LayerBuilder {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:12px;
+    background-color: lightcyan;
+    border: 3px solid lightblue;
+    border-radius: .5rem;
+    box-shadow: 3px 3px lightgrey;
+    min-width: 650px;
+}
+
+.color-box {
+    width: 2rem;
+    height: 1rem;
+    border: 2px solid lightblue;
+}

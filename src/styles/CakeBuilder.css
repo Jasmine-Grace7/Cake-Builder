@@ -1,0 +1,13 @@
+.cake-builder {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 33%;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-layer {
+    width: 75%;
+    padding: 12px;
+}

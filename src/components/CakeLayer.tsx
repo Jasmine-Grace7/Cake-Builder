@@ -6,7 +6,7 @@ interface cakeProps {
 
 function CakeLayer({cakeLayer}: cakeProps) {
     return (
-        <div className='CakeLayer' style={{color: cakeLayer.color, width: cakeLayer.width, height: cakeLayer.height}}>
+        <div className='CakeLayer' style={{color: cakeLayer.color, width: cakeLayer.width + 'px', height: cakeLayer.height + 'px'}}>
         </div>
     );
 }
