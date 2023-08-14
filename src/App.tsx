@@ -25,6 +25,7 @@ function App() {
       <CakeBuilder a={addLayer} 
       remove={removeLayerByIndex}
       cake={cake}/>
+      <Cake cake={cake}/>
       </header>
     </div>
   );

@@ -1,1 +1,6 @@
+header{
+    display: flex;
+    flex-direction: row;
+    background-image: url("./img/Cakedecor.jpg");
+}
 

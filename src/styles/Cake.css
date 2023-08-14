@@ -1,0 +1,9 @@
+.Cake-Layers {
+    width: 66%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
