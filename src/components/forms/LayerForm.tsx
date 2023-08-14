@@ -35,10 +35,14 @@ function LayerForm({ addLayer, setDisplay}: LayerFormProps) {
                 <option value={'violet'}>Violet</option>
                 <option value={'white'}>White</option>
             </select>
+            <div className="range-div">
             <label htmlFor="width">Width: {width}</label>
             <input type="range" value={width} min={1} max={10} step={0.5} onChange={(event) => setWidth(event.target.value)} />
+            </div>
+            <div className="range-div">
             <label htmlFor="height">Height: {height}</label>
             <input type="range" value={height} min={0.5} max={10.0} step={0.5} onChange={(event) => setHeight(event.target.value)} />
+            </div>
             <button type="submit" onClick={createLayer}>Save</button>
             <button onClick={setDisplay}>Cancel</button>
         </form>

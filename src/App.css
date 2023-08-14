@@ -1,6 +1,12 @@
 header{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-image: url("./img/Cakedecor.jpg");
+    align-items: center;
 }
 
+@media screen and (min-width: 768px) {
+    header{
+        flex-direction: row;
+    }
+}

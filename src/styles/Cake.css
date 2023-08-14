@@ -1,9 +1,19 @@
 .Cake-Layers {
-    width: 66%;
-    height: 100vh;
+    width: 90%;
+    height: 66vh;
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
 }
 
+@media screen and (min-width: 768px) {
+    .Cake-Layers {
+        width: 66%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+}
