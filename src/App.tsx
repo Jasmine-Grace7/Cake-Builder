@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <header>
       <CakeBuilder a={addLayer} 
-      remove={() => {removeLayerByIndex(index)}}
+      remove={removeLayerByIndex}
       cake={cake}/>
       </header>
     </div>

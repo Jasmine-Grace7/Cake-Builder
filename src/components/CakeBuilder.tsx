@@ -12,10 +12,10 @@ function CakeBuilder(props: any) {
             {display ? (
             <button className="add-layer" onClick={() => setDisplay(false)}>Add a Layer</button>
         ): (
-            <LayerForm addLayer={props.a} display={display}/>
+            <LayerForm addLayer={props.a} setDisplay={() => setDisplay(true)}/>
             )}
             {props.cake.map((cakeLayer: CakeLayerModel, index: number) => (
-                <LayerBuilder key={cakeLayer.toString()} remove={props.remove(index)} cakeLayer={cakeLayer} />
+                <LayerBuilder key={cakeLayer.toString()} remove={() => props.remove(index)} cakeLayer={cakeLayer} />
             ))}
         </div>
     )

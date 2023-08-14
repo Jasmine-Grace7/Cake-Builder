@@ -1,12 +1,14 @@
 form {
     display: flex;
-    background-color: lightblue;
-    width: 50%;
+    background-color: lightcyan;
+    border: 3px solid lightblue;
+    width: 80%;
     height: 3rem;
     border-radius: .5rem;
     box-shadow: 3px 3px lightgrey;
     align-items: center;
     justify-content: space-between;
     padding:12px;
+    min-width: 650px;
 }
 

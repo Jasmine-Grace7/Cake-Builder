@@ -4,26 +4,22 @@ import "../../styles/LayerFormStyle.css"
 
 interface LayerFormProps {
     addLayer(layer: CakeLayerModel): void;
-    display: boolean;
+    setDisplay(): void;
 }
 
-function LayerForm({ addLayer, display}: LayerFormProps) {
+function LayerForm({ addLayer, setDisplay}: LayerFormProps) {
     const [color, setColor] = useState('');
     const [width, setWidth] = useState('');
     const [height, setHeight] = useState('');
-    const [Display, setDisplay] = useState(display)
-
-    const handleCancel = () => {
-        setColor("");
-        setWidth("");
-        setHeight("");
-    };
 
     function createLayer(event: FormEvent) {
         event.preventDefault();
-        
         const layer: CakeLayerModel = {color, width: parseInt(width), height: parseInt(height)}
         addLayer(layer);
+        setColor('');
+        setWidth('');
+        setHeight('');
+        setDisplay();
     }
 
     return (
@@ -37,14 +33,14 @@ function LayerForm({ addLayer, display}: LayerFormProps) {
                 <option value={'green'}>Green</option>
                 <option value={'cyan'}>Cyan</option>
                 <option value={'violet'}>Violet</option>
-                <option value={'black'}>Black</option>
+                <option value={'white'}>White</option>
             </select>
-            <label htmlFor="width">Width</label>
+            <label htmlFor="width">Width: {width}</label>
             <input type="range" value={width} min={1} max={10} step={0.5} onChange={(event) => setWidth(event.target.value)} />
-            <label htmlFor="height">Height</label>
+            <label htmlFor="height">Height: {height}</label>
             <input type="range" value={height} min={0.5} max={10.0} step={0.5} onChange={(event) => setHeight(event.target.value)} />
-            <button type="submit" onClick={() => setDisplay(true)}>Save</button>
-            <button onClick={() => setDisplay(true)}>Cancel</button>
+            <button type="submit" onClick={createLayer}>Save</button>
+            <button onClick={setDisplay}>Cancel</button>
         </form>
     )
 }
